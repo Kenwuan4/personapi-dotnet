@@ -14,7 +14,6 @@ namespace personapi_dotnet.Models.Repository
 
         public IEnumerable<Estudio> GetEstudios()
         {
-
             return _context.Estudios.ToList();
         }
 
