@@ -1,6 +1,8 @@
+using Estudiopi_dotnet.Models.Repository;
 using Microsoft.EntityFrameworkCore;
 using personapi_dotnet.Models.Entities;
 using personapi_dotnet.Models.Repository;
+using Profesionpi_dotnet.Models.Repository;
 using Telefonopi_dotnet.Models.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +16,8 @@ builder.Services.AddDbContext<PersonaDbContext>(options =>
 
 builder.Services.AddTransient<IPersonaRepository, PersonaRepository>();
 builder.Services.AddTransient<ITelefonoRepository, TelefonoRepository>();
+builder.Services.AddTransient<IProfesionRepository, ProfesionRepository>();
+builder.Services.AddTransient<IEstudioRepository, EstudioRepository>();
 
 var app = builder.Build();
 
