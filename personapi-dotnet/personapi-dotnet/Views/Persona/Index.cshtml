@@ -1,0 +1,27 @@
+﻿@model List<personapi_dotnet.Models.Entities.Persona>
+
+<h1> Personas </h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Genero</th>
+            <th>Edad</th>
+            <th>Cedula</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var personas in Model)
+        {
+            <tr>
+                <td> @Html.DisplayFor(m => personas.Nombre)</td>
+                <td> @Html.DisplayFor(m => personas.Apellido)</td>
+                <td> @Html.DisplayFor(m => personas.Genero)</td>
+                <td> @Html.DisplayFor(m => personas.Edad)</td>
+                <td> @Html.DisplayFor(m => personas.Cc)</td>
+            </tr>
+        }
+    </tbody>
+</table>
