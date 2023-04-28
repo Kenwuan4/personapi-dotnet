@@ -73,3 +73,8 @@ C:\Arquitectura\Laboratorio1\personapi-dotnet\personapi-dotnet\obj\Debug\net7.0\
 C:\Arquitectura\Laboratorio1\personapi-dotnet\personapi-dotnet\obj\Debug\net7.0\personapi-dotnet.pdb
 C:\Arquitectura\Laboratorio1\personapi-dotnet\personapi-dotnet\obj\Debug\net7.0\personapi-dotnet.genruntimeconfig.cache
 C:\Arquitectura\Laboratorio1\personapi-dotnet\personapi-dotnet\obj\Debug\net7.0\ref\personapi-dotnet.dll
+C:\Arquitectura\Laboratorio1\personapi-dotnet\personapi-dotnet\bin\Debug\net7.0\Microsoft.OpenApi.dll
+C:\Arquitectura\Laboratorio1\personapi-dotnet\personapi-dotnet\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Arquitectura\Laboratorio1\personapi-dotnet\personapi-dotnet\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Arquitectura\Laboratorio1\personapi-dotnet\personapi-dotnet\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Arquitectura\Laboratorio1\personapi-dotnet\personapi-dotnet\obj\Debug\net7.0\personapi-dotnet.MvcApplicationPartsAssemblyInfo.cs

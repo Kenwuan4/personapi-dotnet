@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using personapi_dotnet.Models.Entities;
 using Estudiopi_dotnet.Models.Repository;
+using personapi_dotnet.Models.Repository;
 
 namespace personapi_dotnet.Controllers
 {
@@ -8,25 +9,25 @@ namespace personapi_dotnet.Controllers
     [ApiController]
     public class EstudioController : ControllerBase
     {
-        private EstudioRepository _EstudioRepository;
+        private IEstudioRepository _estudioRepository;
 
-        public EstudioController(IEstudioRepository EstudioRepository)
+        public EstudioController(IEstudioRepository estudioRepository)
         {
-            _EstudioRepository = EstudioRepository;
+            _estudioRepository = estudioRepository;
         }
 
         [HttpGet]
         [ActionName(nameof(GetEstudiosAsync))]
         public IEnumerable<Estudio> GetEstudiosAsync()
         {
-            return _EstudioRepository.GetEstudios();
+            return _estudioRepository.GetEstudios();
         }
 
-        [HttpGet("{id}")]
-        [ActionName(nameof(GetEstudioByNum))]
+        [HttpGet("{idprof},{cc}")]
+        [ActionName(nameof(GetEstudioByProfIdAndCc))]
         public ActionResult<Estudio> GetEstudioByProfIdAndCc(int idProf, int cc)
         {
-            var EstudioByID = _EstudioRepository.GetEstudioByProfIdAndCc(idProf, cc);
+            var EstudioByID = _estudioRepository.GetEstudioByProfIdAndCc(idProf, cc);
 
             if (EstudioByID == null)
             {
@@ -38,13 +39,13 @@ namespace personapi_dotnet.Controllers
 
         [HttpPost]
         [ActionName(nameof(CreateEstudioAsync))]
-        public async Task<ActionResult<Estudio>> CreateEstudioAsync(Estudio Estudio)
+        public async Task<ActionResult<Estudio>> CreateEstudioAsync(Estudio estudio)
         {
-            await _EstudioRepository.CreateEstudioAsync(Estudio);
-            return CreatedAtAction(nameof(GetEstudioByNum), new { id = Estudio.IdProf }, Estudio);
+            await _estudioRepository.CreateEstudioAsync(estudio);
+            return CreatedAtAction(nameof(GetEstudioByProfIdAndCc), new { id = estudio.IdProf }, estudio);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("{idprof},{cc}")]
         [ActionName(nameof(UpdateEstudio))]
         public async Task<ActionResult> UpdateEstudio(int idProf, int cc, Estudio estudio)
         {
@@ -53,22 +54,22 @@ namespace personapi_dotnet.Controllers
                 return BadRequest();
             }
 
-            await _EstudioRepository.UpdateEstudioAsync(Estudio);
+            await _estudioRepository.UpdateEstudioAsync(estudio);
 
             return NoContent();
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{idprof},{cc}")]
         [ActionName(nameof(DeleteEstudio))]
         public async Task<IActionResult> DeleteEstudio(int idProf, int cc)
         {
-            var Estudio = _EstudioRepository.GetEstudioByProfIdAndCc(idProf, cc);
-            if (Estudio == null)
+            var estudio = _estudioRepository.GetEstudioByProfIdAndCc(idProf, cc);
+            if (estudio == null)
             {
                 return NotFound();
             }
 
-            await _EstudioRepository.DeleteEstudioAsync(Estudio);
+            await _estudioRepository.DeleteEstudioAsync(estudio);
             return NoContent();
         }
     }

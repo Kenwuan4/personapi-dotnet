@@ -22,7 +22,7 @@ namespace personapi_dotnet.Controllers
             return _telefonoRepository.GetTelefonos();
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{num}")]
         [ActionName(nameof(GetTelefonoByNum))]
         public ActionResult<Telefono> GetTelefonoByNum(string num)
         {
@@ -42,7 +42,7 @@ namespace personapi_dotnet.Controllers
             return CreatedAtAction(nameof(GetTelefonoByNum), new { id = telefono.Num }, telefono);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("{num}")]
         [ActionName(nameof(UpdateTelefono))]
         public async Task<ActionResult> UpdateTelefono(string num, Telefono telefono)
         {
@@ -57,7 +57,7 @@ namespace personapi_dotnet.Controllers
 
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{num}")]
         [ActionName(nameof(DeleteTelefono))]
         public async Task<IActionResult> DeleteTelefono(string num)
         {
