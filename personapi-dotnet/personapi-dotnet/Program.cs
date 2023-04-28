@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using personapi_dotnet.Models.Entities;
+using personapi_dotnet.Models.Repository;
+using Telefonopi_dotnet.Models.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +11,9 @@ builder.Services.AddDbContext<PersonaDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("PersonaDBContext"));
 });
+
+builder.Services.AddTransient<IPersonaRepository, PersonaRepository>();
+builder.Services.AddTransient<ITelefonoRepository, TelefonoRepository>();
 
 var app = builder.Build();
 
